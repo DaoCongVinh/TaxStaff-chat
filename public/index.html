@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaxStaff Chat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Join Screen -->
+    <div id="join-container" class="join-container">
+      <div class="join-box">
+        <h1>💬 TaxStaff Chat</h1>
+        <p class="subtitle">Website chat realtime học tập</p>
+        <form id="join-form">
+          <div class="form-group">
+            <label for="username">Tên của bạn</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Nhập tên của bạn..."
+              maxlength="20"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="room">Phòng chat</label>
+            <input
+              type="text"
+              id="room"
+              placeholder="Tên phòng (VD: Lớp12A)..."
+              maxlength="30"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-join">Tham gia</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chat-container" class="chat-container hidden">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h3>👥 Thành viên</h3>
+          <span id="room-name" class="room-badge"></span>
+        </div>
+        <ul id="user-list" class="user-list"></ul>
+        <button id="leave-btn" class="btn-leave">Rời phòng</button>
+      </div>
+
+      <div class="chat-main">
+        <div class="chat-header">
+          <h2 id="chat-room-title">Phòng chat</h2>
+        </div>
+        <div id="messages" class="messages"></div>
+        <form id="message-form" class="message-form">
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Nhập tin nhắn..."
+            autocomplete="off"
+            maxlength="500"
+          />
+          <button type="submit" class="btn-send">Gửi</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>
